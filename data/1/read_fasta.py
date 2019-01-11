@@ -5,15 +5,15 @@ for line in open("ampR.fasta"):
 
     # starts with '>'
     if line.startswith(">"):
-        name, description = line[1:].split(" ", 1)
+        name, description = line[1:].split(" ", maxsplit=1)
         seq = ""
     else:
         seq += line
 
-print(name, description, seq)
+print("name: %s\ndescription: %s\nseq: %s" % (name, description, seq))
 
 # length
-print("Length: %s" % len(seq))
+print("length: %s" % len(seq))
 
 # ATCG
 a = seq.count("A")
